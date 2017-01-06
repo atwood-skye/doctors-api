@@ -1,16 +1,27 @@
 var apiKey = require('./../.env').apiKey;
 
-Doctor = function() {
+function Doctor(medIssue) {
+  this.issue = medIssue;
 }
 
 
-Doctor.prototype.getDoctors = function(medIssue, displayFunction) {
+Doctor.prototype.getDoctors = function(medIssue) {
   $.get('https://api.betterdoctor.com/2016-03-01/doctors?query='+ medIssue +'&location=45.5231%2C-122.6765%2C%205&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=' + apiKey)
-  .then(function(response); {
-    displayFunction(medIssue, response.data.profile.first_name);
-    }).fail(function(error) {
-      $('.showDoctors').text(error.responseJSON.message);
+  .then(function(response)      {
+
+    var doctors = response.data;
+
+    doctors.forEach(function(doctor){
+      var docName = doctor.profile.first_name + " " + doctor.profile.last_name + " " + doctor.profile.specialty_uid;
+
+    $('.showDoctors').append("<li>" + docName + "</li>");
+});
+//.fail(function(error) {
+      //$('.showDoctors').text(error.responseJSON.message);
+    //});
   });
-}
+};
+
+
 
 exports.doctorModule = Doctor;
