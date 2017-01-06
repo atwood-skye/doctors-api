@@ -12,9 +12,10 @@ Doctor.prototype.getDoctors = function(medIssue) {
     var doctors = response.data;
 
     doctors.forEach(function(doctor){
-      var docName = doctor.profile.first_name + " " + doctor.profile.last_name + " " + doctor.profile.specialty_uid;
+      var docName = doctor.profile.first_name + " " + doctor.profile.last_name;
+      var docBio = doctor.profile.bio;
 
-    $('.showDoctors').append("<li>" + docName + "</li>");
+    $('.showDoctors').append("<h4>" + docName + "</h4>" + "<br>" + docBio);
 });
 //.fail(function(error) {
       //$('.showDoctors').text(error.responseJSON.message);
