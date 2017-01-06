@@ -1,7 +1,7 @@
 var Doctor = require('./../js/doctor.js').doctorModule;
 
 function docRecs(result) {
-  $('.showDoctors').append(result);
+  $(.showDoctors).append("<li>" + result.profile + "</li>");
 }
 
 $(function() {
