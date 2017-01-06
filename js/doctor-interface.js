@@ -1,15 +1,16 @@
 var Doctor = require('./../js/doctor.js').doctorModule;
 
-function docRecs(result) {
-  $(.showDoctors).append("<li>" + result.profile + "</li>");
+
+var docRecs = function(medIssue, docName) {
+  $('.showDoctors').append("<li>" + docName + "</li>");
 }
 
-$(function() {
+
+$(document).ready(function) {
+  var docFinal = new Doctor();
   $('#findDoctors').click(function() {
-    event.preventDefault();
     var medIssue = $('#issue').val();
     $('#issue').val("");
-    var docFinal = new Doctor();
     docFinal.getDoctors(medIssue, docRecs);
   });
 });

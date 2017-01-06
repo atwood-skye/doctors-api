@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="build/css/vendor.css">
     <link rel="stylesheet" href="build/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="build/js/vendor.min.js"></script>
     <script type="text/javascript" src="build/js/app.js"></script>
     <title>Find a Doctor</title>
@@ -13,11 +13,13 @@
   <body>
     <div class="container">
       <h1>Find a Doctor</h1>
+      <div class="box">
       <label for="issue">What is your medical issue?</label>
       <input id="issue" type="text">
-      <button class="btn-success" id="findDoctors">Find Doctors!</button>
+      <a class="waves-effect waves-light btn" id="findDoctors"><i class="material-icons left">perm_identity</i>Find Doctors!</a>
+    </div>
+      <h4>Doctors in your area that may help:</h4>
       <div class="showDoctors"></div>
-      <h3>Doctors in your area that may help:</h3>
       <ul>
 
       </ul>
